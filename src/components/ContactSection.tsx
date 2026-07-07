@@ -1,10 +1,29 @@
 import { SectionHeader } from "./SectionHeader";
 
 const contacts = [
-  { label: "EMAIL", href: "mailto:kayla@example.com", borderClass: "border-green" },
-  { label: "GITHUB", href: "https://github.com/", borderClass: "border-magenta", external: true },
-  { label: "LINKEDIN", href: "https://linkedin.com/", borderClass: "border-blue", external: true },
-  { label: "RÉSUMÉ", href: "#", borderClass: "border-yellow" },
+  {
+    label: "EMAIL",
+    href: "mailto:kayla.prutti@gmail.com",
+    borderClass: "border-green",
+  },
+  {
+    label: "GITHUB",
+    href: "https://github.com/kayla-prutti",
+    borderClass: "border-magenta",
+    external: true,
+  },
+  {
+    label: "LINKEDIN",
+    href: "https://www.linkedin.com/in/wasanta-pruttisarikorn-b084041a2/",
+    borderClass: "border-blue",
+    external: true,
+  },
+  {
+    label: "RÉSUMÉ",
+    href: "/Kayla_Pruttisarikorn_Resume_SWE.pdf",
+    borderClass: "border-yellow",
+    external: true,
+  },
 ];
 
 export function ContactSection() {
