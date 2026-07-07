@@ -27,7 +27,7 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 62px; }
 
 body {
   margin: 0;
@@ -58,6 +58,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: space-between;
   height: 58px;
+  padding: 0 28px;
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-bullet {
@@ -68,12 +69,12 @@ a { color: inherit; text-decoration: none; }
   font-weight: 900; font-size: 15px;
 }
 .brand-bullet.small { width: 22px; height: 22px; font-size: 12px; }
-.brand-name { font-weight: 900; letter-spacing: 2px; font-size: 18px; }
+.brand-name { font-weight: 600; letter-spacing: 2px; font-size: 18px; }
 
 .nav { display: flex; gap: 26px; }
 .nav a {
   display: flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+  font-size: 13px; font-weight: 500; letter-spacing: 1.5px;
   color: #cfcfcf;
   transition: color .15s;
 }
@@ -96,7 +97,22 @@ a { color: inherit; text-decoration: none; }
 .dot-c { background: var(--mta-green); }
 
 /* ---------------- HERO ---------------- */
-.hero { text-align: center; padding: 40px 28px 64px; }
+.hero {
+  min-height: calc(100vh - 62px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 28px 36px;
+}
+.hero-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .line-marker {
   color: #8a8a8a; font-weight: 700; letter-spacing: 4px; font-size: 13px;
   margin-bottom: 22px;
@@ -105,17 +121,17 @@ a { color: inherit; text-decoration: none; }
   border: 3px solid #fff;
   border-radius: 20px;
   padding: 34px 20px 26px;
-  max-width: 900px; margin: 0 auto;
+  width: 100%; margin: 0 auto;
 }
 .hero-title {
   margin: 0;
   font-size: clamp(64px, 13vw, 132px);
-  font-weight: 900; letter-spacing: 4px; line-height: .9;
+  font-weight: 600; letter-spacing: 4px; line-height: .9;
 }
 .hero-role {
   margin: 10px 0 22px;
   color: var(--yellow);
-  font-weight: 800; letter-spacing: 8px; font-size: clamp(16px, 3vw, 26px);
+  font-weight: 500; letter-spacing: 8px; font-size: clamp(16px, 3vw, 26px);
 }
 .hero-bullets { display: flex; gap: 14px; justify-content: center; }
 .hero-bullets .dot { width: 30px; height: 30px; font-size: 15px; }
@@ -127,6 +143,7 @@ a { color: inherit; text-decoration: none; }
 .this-way {
   display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
   color: #9a9a9a; font-size: 12px; font-weight: 700; letter-spacing: 3px;
+  padding-top: 40px;
 }
 .this-way .arrow { font-size: 20px; animation: bob 1.6s ease-in-out infinite; }
 @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
@@ -140,10 +157,10 @@ a { color: inherit; text-decoration: none; }
 .section-title {
   display: flex; align-items: center; gap: 16px;
   margin: 0; font-size: clamp(28px, 5vw, 40px);
-  font-weight: 900; letter-spacing: 2px;
+  font-weight: 600; letter-spacing: 2px;
 }
 .line-tag {
-  font-size: 12px; font-weight: 800; letter-spacing: 2px;
+  font-size: 12px; font-weight: 600; letter-spacing: 2px;
   text-align: right;
 }
 .tag-yellow { color: var(--yellow); }
@@ -158,11 +175,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 .about-card { padding: 34px 36px; }
-.eyebrow { font-size: 12px; font-weight: 800; letter-spacing: 3px; margin: 0 0 16px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 3px; margin: 0 0 16px; }
 .eyebrow-blue { color: var(--mta-blue); }
 .lede {
   font-size: clamp(20px, 2.8vw, 27px);
-  font-weight: 800; line-height: 1.32; margin: 0 0 22px;
+  font-weight: 600; line-height: 1.32; margin: 0 0 22px;
 }
 .hl-blue { color: var(--mta-blue); }
 .hl-red { color: var(--mta-red); }
@@ -191,7 +208,7 @@ a { color: inherit; text-decoration: none; }
   bottom: calc(100% + 14px);   /* label sits ABOVE the dot */
   left: 50%; transform: translateX(-50%);
   white-space: nowrap;
-  font-size: 12px; font-weight: 800; letter-spacing: 1px; color: #111;
+  font-size: 12px; font-weight: 600; letter-spacing: 1px; color: #111;
 }
 /* red line: runs through the dot centers, from first dot to last dot */
 .track {
@@ -222,10 +239,10 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .train { animation: none; left: calc(75% - 15px); }
 }
-.stop-label { font-size: 12px; font-weight: 800; letter-spacing: 1px; color: #111; }
+.stop-label { font-size: 12px; font-weight: 600; letter-spacing: 1px; color: #111; }
 .stop-legend {
   display: flex; align-items: center; gap: 10px;
-  margin: 30px 0 0; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #333;
+  margin: 30px 0 0; font-size: 12px; font-weight: 500; letter-spacing: 1px; color: #333;
 }
 .legend-node {
   width: 12px; height: 12px; border-radius: 50%;
@@ -244,20 +261,20 @@ a { color: inherit; text-decoration: none; }
 .now-serving {
   display: inline-block;
   background: var(--mta-orange); color: #fff;
-  font-size: 11px; font-weight: 800; letter-spacing: 2px;
+  font-size: 11px; font-weight: 600; letter-spacing: 2px;
   padding: 6px 12px; margin-bottom: 18px;
 }
 .project-title {
   margin: 0 0 16px; font-size: clamp(28px, 4vw, 38px);
-  font-weight: 900; letter-spacing: 1px; line-height: 1.05;
+  font-weight: 600; letter-spacing: 1px; line-height: 1.05;
 }
 .project-desc { color: #444; font-size: 15px; line-height: 1.6; margin: 0 0 24px; }
-.stack-label { font-size: 11px; font-weight: 800; letter-spacing: 2px; color: #666; margin: 0 0 12px; }
+.stack-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: #666; margin: 0 0 12px; }
 .stack-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
 .tag {
   display: inline-flex; align-items: center; gap: 8px;
   border: 2px solid #111; padding: 7px 12px;
-  font-size: 12px; font-weight: 800; letter-spacing: 1px;
+  font-size: 12px; font-weight: 600; letter-spacing: 1px;
 }
 .tag-chip { width: 12px; height: 12px; border-radius: 2px; }
 .chip-magenta { background: var(--mta-magenta); }
@@ -266,7 +283,7 @@ a { color: inherit; text-decoration: none; }
 .btn {
   display: inline-block;
   background: #111; color: #fff;
-  font-size: 13px; font-weight: 800; letter-spacing: 1.5px;
+  font-size: 13px; font-weight: 600; letter-spacing: 1.5px;
   padding: 13px 20px;
   transition: transform .12s;
 }
@@ -288,7 +305,7 @@ a { color: inherit; text-decoration: none; }
   transition: transform .12s, background .12s;
 }
 .contact-card:hover { transform: translateY(-3px); background: #191919; }
-.contact-label { font-size: 15px; font-weight: 800; letter-spacing: 2px; }
+.contact-label { font-size: 15px; font-weight: 600; letter-spacing: 2px; }
 .contact-arrow { font-size: 20px; color: #bbb; }
 .border-green { border-top-color: var(--mta-green); }
 .border-magenta { border-top-color: var(--mta-magenta); }
@@ -310,9 +327,9 @@ a { color: inherit; text-decoration: none; }
 }
 .footer-credit {
   display: flex; align-items: center; gap: 10px;
-  font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #cfcfcf;
+  font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #cfcfcf;
 }
-.mind-gap { color: var(--yellow); font-size: 12px; font-weight: 800; letter-spacing: 2px; }
+.mind-gap { color: var(--yellow); font-size: 12px; font-weight: 600; letter-spacing: 2px; }
 
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 760px) {
@@ -330,7 +347,7 @@ a { color: inherit; text-decoration: none; }
 <body>
   <!-- ============ HEADER ============ -->
   <header class="site-header">
-    <div class="wrap header-inner">
+    <div class="header-inner">
       <a href="#top" class="brand">
         <span class="brand-bullet">K</span>
         <span class="brand-name">KAYLA</span>
@@ -348,18 +365,20 @@ a { color: inherit; text-decoration: none; }
   <main id="top">
     <!-- ============ HERO ============ -->
     <section class="hero wrap">
-      <p class="line-marker">&#9664; NEW YORK CITY &middot; PORTFOLIO LINE &#9654;</p>
-      <div class="hero-panel">
-        <h1 class="hero-title">KAYLA</h1>
-        <p class="hero-role">SOFTWARE ENGINEER</p>
-        <div class="hero-bullets">
-          <span class="dot dot-a">A</span>
-          <span class="dot dot-s">S</span>
-          <span class="dot dot-p">P</span>
-          <span class="dot dot-c">C</span>
+      <div class="hero-content">
+        <p class="line-marker">&#9664; NEW YORK CITY &middot; PORTFOLIO LINE &#9654;</p>
+        <div class="hero-panel">
+          <h1 class="hero-title">KAYLA</h1>
+          <p class="hero-role">SOFTWARE ENGINEER</p>
+          <div class="hero-bullets">
+            <span class="dot dot-a">A</span>
+            <span class="dot dot-s">S</span>
+            <span class="dot dot-p">P</span>
+            <span class="dot dot-c">C</span>
+          </div>
         </div>
+        <p class="hero-tagline">I bring data and design to life.</p>
       </div>
-      <p class="hero-tagline">I bring data and design to life.</p>
       <div class="this-way">
         <span>THIS WAY</span>
         <span class="arrow">&#8595;</span>
