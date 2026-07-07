@@ -12,7 +12,18 @@ export function ProjectsSection() {
       <SectionHeader line="p" title="PROJECTS" tag="P LINE &middot; EXPRESS" tagColor="orange" />
       <div className="wrap">
         <article className="card project-card">
-          <div className="project-visual" aria-hidden="true" />
+          <a
+            className="project-visual"
+            href="https://job-search-studio.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Job Search Studio (opens in a new tab)"
+          >
+            <img
+              src="/job-search-studio-preview.png"
+              alt="Job Search Studio insights dashboard showing application stats, status breakdown, and salary snapshot"
+            />
+          </a>
           <div className="project-body">
             <span className="now-serving">NOW SERVING</span>
             <h3 className="project-title">JOB SEARCH STUDIO</h3>
@@ -29,7 +40,7 @@ export function ProjectsSection() {
                 </span>
               ))}
             </div>
-            <a className="btn" href="#">
+            <a className="btn" href="https://job-search-studio.onrender.com/" target="_blank" rel="noopener noreferrer">
               VIEW PROJECT &#9654;
             </a>
           </div>
