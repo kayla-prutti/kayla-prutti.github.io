@@ -642,6 +642,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-left: 32px;
+  padding-right: 32px;
   padding-top: 22px;
   padding-bottom: 34px;
   flex-wrap: wrap;
@@ -677,6 +679,11 @@ a {
   }
 
   .section-head {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .footer-inner {
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -733,6 +740,11 @@ a {
     padding: 24px 22px;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .footer-inner {
+    padding-left: 22px;
+    padding-right: 22px;
   }
 
   .section > .wrap {

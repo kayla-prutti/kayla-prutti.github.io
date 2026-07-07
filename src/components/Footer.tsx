@@ -2,7 +2,7 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="dotted-rule" />
-      <div className="wrap footer-inner">
+      <div className="footer-inner">
         <span className="footer-credit">
           <span className="brand-bullet small">K</span> DESIGNED &amp; BUILT BY KAYLA &middot; NEW
           YORK, NY
