@@ -40,9 +40,19 @@ export function ProjectsSection() {
                 </span>
               ))}
             </div>
-            <a className="btn" href="https://job-search-studio.onrender.com/" target="_blank" rel="noopener noreferrer">
-              VIEW PROJECT &#9654;
-            </a>
+            <div className="project-actions">
+              <a className="btn" href="https://job-search-studio.onrender.com/" target="_blank" rel="noopener noreferrer">
+                VIEW PROJECT &#9654;
+              </a>
+              <a
+                className="btn btn-secondary"
+                href="https://github.com/kayla-prutti/job-search-studio"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                SOURCE CODE &#9654;
+              </a>
+            </div>
           </div>
         </article>
       </div>
