@@ -20,6 +20,28 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: "creatorfit-ai",
+    nowServing: "NOW MATCHING",
+    title: "CREATORFIT AI",
+    description:
+      "An AI-assisted matchmaker for creator marketing — turn a rough campaign brief into " +
+      "ranked creator picks with fit scores, budget planning, and brand-safety checks, each " +
+      "match explained in plain language.",
+    stackTags: [
+      { label: "REACT", chipClass: "chip-magenta" },
+      { label: "PYTHON", chipClass: "chip-blue" },
+      { label: "OPENAI API", chipClass: "chip-green" },
+    ],
+    liveUrl: "https://creatorfit-ai.vercel.app/",
+    repoUrl: "https://github.com/kayla-prutti/creatorfit-ai",
+    images: [
+      {
+        src: "/creatorfit-ai-preview.png",
+        alt: "CreatorFit AI dashboard showing recommended creators ranked by fit score for a skincare campaign brief",
+      },
+    ],
+  },
+  {
     id: "job-search-studio",
     nowServing: "NOW SERVING",
     title: "JOB SEARCH STUDIO",
