@@ -9,7 +9,9 @@ const navItems = [
 
 export function Header() {
   const [active, setActive] = useState("about");
+  const [menuOpen, setMenuOpen] = useState(false);
   const suppressUntilRef = useRef(0);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const sections = navItems
@@ -61,6 +63,26 @@ export function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    const handleClickOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [menuOpen]);
+
   const handleNavClick = (id: string) => {
     // Set the clicked item active right away, and ignore scroll-spy updates
     // until the smooth-scroll it triggers has had time to settle — otherwise
@@ -68,15 +90,17 @@ export function Header() {
     // report a different section as active than the one just clicked.
     setActive(id);
     suppressUntilRef.current = Date.now() + 900;
+    setMenuOpen(false);
   };
 
   return (
-    <header className="site-header">
+    <header className="site-header" ref={headerRef}>
       <div className="header-inner">
         <p className="eyebrow-lines">
           <span>Software Engineer</span>
           <span>Est. 2020 &middot; New York, NY</span>
         </p>
+
         <nav className="nav-toggle" aria-label="Primary">
           {navItems.map((item) => (
             <a
@@ -89,7 +113,35 @@ export function Header() {
             </a>
           ))}
         </nav>
+
+        <button
+          type="button"
+          className="menu-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className={`menu-bars${menuOpen ? " is-open" : ""}`}>
+            <span className="menu-bar" />
+            <span className="menu-bar" />
+            <span className="menu-bar" />
+          </span>
+        </button>
       </div>
+
+      <nav id="mobile-nav" className={`mobile-nav${menuOpen ? " is-open" : ""}`} aria-label="Primary mobile">
+        {navItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            onClick={() => handleNavClick(item.id)}
+            className={`mobile-nav-item${active === item.id ? " is-active" : ""}`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
     </header>
   );
 }

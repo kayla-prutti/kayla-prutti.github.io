@@ -8,7 +8,7 @@ type ProjectImage = { src: string; alt: string };
 type Project = {
   id: string;
   status: string;
-  folderColor: "pink" | "blue" | "dark";
+  folderColor: "pink" | "blue" | "dark" | "green";
   title: string;
   description: string;
   stackTags: StackTag[];
@@ -21,12 +21,35 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: "asset-allocation-calculator",
+    status: "Live",
+    folderColor: "green",
+    title: "Asset Allocation Calculator",
+    description:
+      "A portfolio planner that turns a USD investment amount and a custom crypto mix into " +
+      "exactly how much of each asset to buy, using live Coinbase exchange rates — visualized " +
+      "as an interactive donut chart with full keyboard and screen-reader support.",
+    stackTags: [
+      { label: "React", chipClass: "chip-magenta" },
+      { label: "TypeScript", chipClass: "chip-blue" },
+      { label: "Vite", chipClass: "chip-green" },
+    ],
+    liveUrl: "https://kayla-prutti.github.io/asset-allocation-calculator/",
+    repoUrl: "https://github.com/kayla-prutti/asset-allocation-calculator",
+    images: [
+      {
+        src: "/asset-allocation-calculator-preview.png",
+        alt: "Asset Allocation Calculator showing a 50/50 Bitcoin and Ethereum mix on a $1,000 investment, with a donut chart and exact BTC and ETH amounts",
+      },
+    ],
+  },
+  {
     id: "creatorfit-ai",
     status: "Live",
     folderColor: "pink",
     title: "CreatorFit AI",
     description:
-      "An AI-assisted matchmaker for creator marketing — turn a rough campaign brief into " +
+      "An AI-assisted matchmaker for creator marketing, turn a rough campaign brief into " +
       "ranked creator picks with fit scores, budget planning, and brand-safety checks, each " +
       "match explained in plain language.",
     stackTags: [
@@ -49,7 +72,7 @@ const projects: Project[] = [
     folderColor: "blue",
     title: "Job Search Studio",
     description:
-      "A focused workspace for the job hunt — track applications, contacts, and " +
+      "A focused workspace for the job hunt, track applications, contacts, and " +
       "follow-ups on one board, with notes and live status at a glance so nothing slips " +
       "through the cracks.",
     stackTags: [
@@ -72,8 +95,8 @@ const projects: Project[] = [
     folderColor: "dark",
     title: "PackSmart",
     description:
-      "A mobile packing checklist built for every trip type — hiking, city, beach, business, " +
-      "ski, or backpacking — with a quick weather check that flags extra items worth packing " +
+      "A mobile packing checklist built for every trip type, hiking, city, beach, business, " +
+      "ski, or backpacking with a quick weather check that flags extra items worth packing " +
       "before you go.",
     stackTags: [
       { label: "React Native", chipClass: "chip-magenta" },
