@@ -21,10 +21,10 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: "MyChain",
+    id: "my-chain",
     status: "Live",
     folderColor: "green",
-    title: "Asset Allocation Calculator",
+    title: "MyChain",
     description:
       "A portfolio planner that turns a USD investment amount and a custom crypto mix into " +
       "exactly how much of each asset to buy, using live Coinbase exchange rates — visualized " +
