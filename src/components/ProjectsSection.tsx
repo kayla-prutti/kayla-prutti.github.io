@@ -27,8 +27,8 @@ const projects: Project[] = [
     title: "MyChain",
     description:
       "A portfolio planner that turns a USD investment amount and a custom crypto mix into " +
-      "exactly how much of each asset to buy, using live Coinbase exchange rates — visualized " +
-      "as an interactive donut chart with full keyboard and screen-reader support.",
+      "exactly how much of each asset to buy, using live Coinbase exchange rates. Visualized " +
+      "as an interactive donut chart.",
     stackTags: [
       { label: "React", chipClass: "chip-magenta" },
       { label: "TypeScript", chipClass: "chip-blue" },
@@ -107,8 +107,14 @@ const projects: Project[] = [
     mobile: true,
     demoVideo: "/packsmart-demo.mp4",
     images: [
-      { src: "/packsmart-trip-type.png", alt: "PackSmart trip type selection screen with hiking, city, beach town, business, ski, and backpacking options" },
-      { src: "/packsmart-weather.png", alt: "PackSmart weather forecast screen showing rain days, wind, UV, and daily highs and lows for the trip" },
+      {
+        src: "/packsmart-trip-type.png",
+        alt: "PackSmart trip type selection screen with hiking, city, beach town, business, ski, and backpacking options",
+      },
+      {
+        src: "/packsmart-weather.png",
+        alt: "PackSmart weather forecast screen showing rain days, wind, UV, and daily highs and lows for the trip",
+      },
     ],
   },
 ];
@@ -137,7 +143,12 @@ function VideoModal({
   return (
     <div className="video-modal-backdrop" onClick={onClose}>
       <div className="video-modal" onClick={(event) => event.stopPropagation()}>
-        <button type="button" className="video-modal-close" onClick={onClose} aria-label="Close live demo">
+        <button
+          type="button"
+          className="video-modal-close"
+          onClick={onClose}
+          aria-label="Close live demo"
+        >
           &#10005;
         </button>
         <div className="phone-frame">
@@ -157,7 +168,10 @@ function VideoModal({
 }
 
 export function ProjectsSection() {
-  const [activeVideo, setActiveVideo] = useState<{ title: string; src: string } | null>(null);
+  const [activeVideo, setActiveVideo] = useState<{
+    title: string;
+    src: string;
+  } | null>(null);
 
   return (
     <section id="projects" className="section">
@@ -167,7 +181,9 @@ export function ProjectsSection() {
           {projects.map((project) => (
             <article className="project-card" key={project.id}>
               <div className={`folder-card folder-${project.folderColor}`}>
-                <div className={`folder-photos${project.mobile ? " folder-photos--mobile" : ""}`}>
+                <div
+                  className={`folder-photos${project.mobile ? " folder-photos--mobile" : ""}`}
+                >
                   {project.images.slice(0, 2).map((image, index) => (
                     <img
                       key={image.src}
@@ -186,7 +202,8 @@ export function ProjectsSection() {
                 <div className="stack-tags">
                   {project.stackTags.map((tag) => (
                     <span className="tag" key={tag.label}>
-                      <span className={`tag-chip ${tag.chipClass}`} /> {tag.label}
+                      <span className={`tag-chip ${tag.chipClass}`} />{" "}
+                      {tag.label}
                     </span>
                   ))}
                 </div>
@@ -195,18 +212,33 @@ export function ProjectsSection() {
                     <button
                       type="button"
                       className="btn"
-                      onClick={() => setActiveVideo({ title: project.title, src: project.demoVideo! })}
+                      onClick={() =>
+                        setActiveVideo({
+                          title: project.title,
+                          src: project.demoVideo!,
+                        })
+                      }
                     >
                       Live demo &#9654;
                     </button>
                   ) : (
                     project.liveUrl && (
-                      <a className="btn" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <a
+                        className="btn"
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         View project &#9654;
                       </a>
                     )
                   )}
-                  <a className="btn btn-secondary" href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                  <a
+                    className="btn btn-secondary"
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Source code &#9654;
                   </a>
                 </div>
@@ -216,7 +248,11 @@ export function ProjectsSection() {
         </div>
       </div>
       {activeVideo && (
-        <VideoModal title={activeVideo.title} src={activeVideo.src} onClose={() => setActiveVideo(null)} />
+        <VideoModal
+          title={activeVideo.title}
+          src={activeVideo.src}
+          onClose={() => setActiveVideo(null)}
+        />
       )}
     </section>
   );
