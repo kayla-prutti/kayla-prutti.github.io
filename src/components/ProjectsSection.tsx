@@ -21,7 +21,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: "asset-allocation-calculator",
+    id: "MyChain",
     status: "Live",
     folderColor: "green",
     title: "Asset Allocation Calculator",
