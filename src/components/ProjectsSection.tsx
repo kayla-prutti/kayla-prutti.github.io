@@ -7,7 +7,8 @@ type ProjectImage = { src: string; alt: string };
 
 type Project = {
   id: string;
-  nowServing: string;
+  status: string;
+  folderColor: "pink" | "blue" | "dark";
   title: string;
   description: string;
   stackTags: StackTag[];
@@ -21,16 +22,17 @@ type Project = {
 const projects: Project[] = [
   {
     id: "creatorfit-ai",
-    nowServing: "NOW MATCHING",
-    title: "CREATORFIT AI",
+    status: "Live",
+    folderColor: "pink",
+    title: "CreatorFit AI",
     description:
       "An AI-assisted matchmaker for creator marketing — turn a rough campaign brief into " +
       "ranked creator picks with fit scores, budget planning, and brand-safety checks, each " +
       "match explained in plain language.",
     stackTags: [
-      { label: "REACT", chipClass: "chip-magenta" },
-      { label: "PYTHON", chipClass: "chip-blue" },
-      { label: "OPENAI API", chipClass: "chip-green" },
+      { label: "React", chipClass: "chip-magenta" },
+      { label: "Python", chipClass: "chip-blue" },
+      { label: "OpenAI API", chipClass: "chip-green" },
     ],
     liveUrl: "https://creatorfit-ai.vercel.app/",
     repoUrl: "https://github.com/kayla-prutti/creatorfit-ai",
@@ -43,16 +45,17 @@ const projects: Project[] = [
   },
   {
     id: "job-search-studio",
-    nowServing: "NOW SERVING",
-    title: "JOB SEARCH STUDIO",
+    status: "Live",
+    folderColor: "blue",
+    title: "Job Search Studio",
     description:
       "A focused workspace for the job hunt — track applications, contacts, and " +
       "follow-ups on one board, with notes and live status at a glance so nothing slips " +
-      "between the cars.",
+      "through the cracks.",
     stackTags: [
-      { label: "REACT", chipClass: "chip-magenta" },
-      { label: "TYPESCRIPT", chipClass: "chip-blue" },
-      { label: "NODE.JS", chipClass: "chip-green" },
+      { label: "React", chipClass: "chip-magenta" },
+      { label: "TypeScript", chipClass: "chip-blue" },
+      { label: "Node.js", chipClass: "chip-green" },
     ],
     liveUrl: "https://job-search-studio.onrender.com/",
     repoUrl: "https://github.com/kayla-prutti/job-search-studio",
@@ -65,94 +68,27 @@ const projects: Project[] = [
   },
   {
     id: "packsmart",
-    nowServing: "NOW BOARDING",
-    title: "PACKSMART",
+    status: "Demo",
+    folderColor: "dark",
+    title: "PackSmart",
     description:
       "A mobile packing checklist built for every trip type — hiking, city, beach, business, " +
       "ski, or backpacking — with a quick weather check that flags extra items worth packing " +
       "before you go.",
     stackTags: [
-      { label: "REACT NATIVE", chipClass: "chip-magenta" },
-      { label: "TYPESCRIPT", chipClass: "chip-blue" },
-      { label: "SUPABASE", chipClass: "chip-green" },
+      { label: "React Native", chipClass: "chip-magenta" },
+      { label: "TypeScript", chipClass: "chip-blue" },
+      { label: "Supabase", chipClass: "chip-green" },
     ],
     repoUrl: "https://github.com/kayla-prutti/travel-packing-app",
     mobile: true,
     demoVideo: "/packsmart-demo.mp4",
     images: [
       { src: "/packsmart-trip-type.png", alt: "PackSmart trip type selection screen with hiking, city, beach town, business, ski, and backpacking options" },
-      { src: "/packsmart-dates.png", alt: "PackSmart cities and dates screen for adding a trip's destination and travel window" },
       { src: "/packsmart-weather.png", alt: "PackSmart weather forecast screen showing rain days, wind, UV, and daily highs and lows for the trip" },
-      { src: "/packsmart-packing-list.png", alt: "PackSmart packing list screen with weather-driven extra items and packed progress" },
     ],
   },
 ];
-
-function ProjectVisual({ project }: { project: Project }) {
-  const [index, setIndex] = useState(0);
-  const image = project.images[index];
-
-  if (project.images.length === 1) {
-    return (
-      <a
-        className="project-visual"
-        href={project.liveUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Open ${project.title} (opens in a new tab)`}
-      >
-        <img src={image.src} alt={image.alt} />
-      </a>
-    );
-  }
-
-  const showSlide = (next: number) => (event: React.MouseEvent) => {
-    event.preventDefault();
-    event.stopPropagation();
-    setIndex((next + project.images.length) % project.images.length);
-  };
-
-  return (
-    <div className={`project-visual project-visual-slider${project.mobile ? " project-visual--mobile" : ""}`}>
-      <a
-        className="project-visual-slide"
-        href={project.liveUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Open ${project.title} (opens in a new tab)`}
-      >
-        <img src={image.src} alt={image.alt} />
-      </a>
-      <button
-        type="button"
-        className="slide-arrow slide-arrow-prev"
-        onClick={showSlide(index - 1)}
-        aria-label="Previous screenshot"
-      >
-        &#10094;
-      </button>
-      <button
-        type="button"
-        className="slide-arrow slide-arrow-next"
-        onClick={showSlide(index + 1)}
-        aria-label="Next screenshot"
-      >
-        &#10095;
-      </button>
-      <div className="slide-dots">
-        {project.images.map((slideImage, slideIndex) => (
-          <button
-            key={slideImage.src}
-            type="button"
-            className={`slide-dot${slideIndex === index ? " active" : ""}`}
-            onClick={showSlide(slideIndex)}
-            aria-label={`Go to screenshot ${slideIndex + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function VideoModal({
   title,
@@ -202,46 +138,59 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="section">
-      <SectionHeader line="p" title="PROJECTS" tag="P LINE &middot; EXPRESS" tagColor="orange" />
-      <div className="wrap projects-wrap">
-        {projects.map((project) => (
-          <article className="card project-card" key={project.id}>
-            <ProjectVisual project={project} />
-            <div className="project-body">
-              <span className="now-serving">{project.nowServing}</span>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.description}</p>
-              <p className="stack-label">STACK &mdash; THIS ROUTE RUNS ON</p>
-              <div className="stack-tags">
-                {project.stackTags.map((tag) => (
-                  <span className="tag" key={tag.label}>
-                    <span className={`tag-chip ${tag.chipClass}`} /> {tag.label}
-                  </span>
-                ))}
+      <SectionHeader title="Projects" meta={`${projects.length} shipped`} />
+      <div className="wrap">
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <article className="project-card" key={project.id}>
+              <div className={`folder-card folder-${project.folderColor}`}>
+                <div className={`folder-photos${project.mobile ? " folder-photos--mobile" : ""}`}>
+                  {project.images.slice(0, 2).map((image, index) => (
+                    <img
+                      key={image.src}
+                      src={image.src}
+                      alt={image.alt}
+                      className={`folder-photo folder-photo-${index}`}
+                    />
+                  ))}
+                </div>
               </div>
-              <div className="project-actions">
-                {project.demoVideo ? (
-                  <button
-                    type="button"
-                    className="btn"
-                    onClick={() => setActiveVideo({ title: project.title, src: project.demoVideo! })}
-                  >
-                    LIVE DEMO &#9654;
-                  </button>
-                ) : (
-                  project.liveUrl && (
-                    <a className="btn" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      VIEW PROJECT &#9654;
-                    </a>
-                  )
-                )}
-                <a className="btn btn-secondary" href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                  SOURCE CODE &#9654;
-                </a>
+
+              <div className="project-overlay">
+                <span className="project-status">{project.status}</span>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-desc">{project.description}</p>
+                <div className="stack-tags">
+                  {project.stackTags.map((tag) => (
+                    <span className="tag" key={tag.label}>
+                      <span className={`tag-chip ${tag.chipClass}`} /> {tag.label}
+                    </span>
+                  ))}
+                </div>
+                <div className="project-actions">
+                  {project.demoVideo ? (
+                    <button
+                      type="button"
+                      className="btn"
+                      onClick={() => setActiveVideo({ title: project.title, src: project.demoVideo! })}
+                    >
+                      Live demo &#9654;
+                    </button>
+                  ) : (
+                    project.liveUrl && (
+                      <a className="btn" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        View project &#9654;
+                      </a>
+                    )
+                  )}
+                  <a className="btn btn-secondary" href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                    Source code &#9654;
+                  </a>
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
       {activeVideo && (
         <VideoModal title={activeVideo.title} src={activeVideo.src} onClose={() => setActiveVideo(null)} />

@@ -1,4 +1,3 @@
-import { AboutSection } from "./components/AboutSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
@@ -12,7 +11,6 @@ export function App() {
       <Header />
       <main id="top">
         <Hero />
-        <AboutSection />
         <SkillsSection />
         <ProjectsSection />
         <ContactSection />

@@ -2,26 +2,26 @@ import { SectionHeader } from "./SectionHeader";
 
 const contacts = [
   {
-    label: "EMAIL",
+    label: "Email",
     href: "mailto:kayla.prutti@gmail.com",
-    borderClass: "border-green",
+    dotClass: "dot-green",
   },
   {
-    label: "GITHUB",
+    label: "GitHub",
     href: "https://github.com/kayla-prutti",
-    borderClass: "border-magenta",
+    dotClass: "dot-pink",
     external: true,
   },
   {
-    label: "LINKEDIN",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/in/wasanta-pruttisarikorn-b084041a2/",
-    borderClass: "border-blue",
+    dotClass: "dot-blue",
     external: true,
   },
   {
-    label: "RÉSUMÉ",
+    label: "Résumé",
     href: "/Kayla_Pruttisarikorn_Resume_SWE.pdf",
-    borderClass: "border-yellow",
+    dotClass: "dot-gold",
     external: true,
   },
 ];
@@ -29,18 +29,19 @@ const contacts = [
 export function ContactSection() {
   return (
     <section id="contact" className="section">
-      <SectionHeader line="c" title="CONTACT" tag="C LINE &middot; EXIT" />
+      <SectionHeader title="Contact" />
       <div className="wrap">
-        <div className="contact-grid">
+        <div className="contact-row">
           {contacts.map((contact) => (
             <a
-              className={`contact-card ${contact.borderClass}`}
+              className="contact-chip"
               href={contact.href}
               key={contact.label}
               rel={contact.external ? "noopener" : undefined}
               target={contact.external ? "_blank" : undefined}
             >
-              <span className="contact-label">{contact.label}</span>
+              <span className={`contact-dot ${contact.dotClass}`} />
+              {contact.label}
               <span className="contact-arrow">&#8599;</span>
             </a>
           ))}

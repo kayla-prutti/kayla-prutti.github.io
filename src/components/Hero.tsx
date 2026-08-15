@@ -1,28 +1,27 @@
-import { SubwayDot, type SubwayLine } from "./SubwayDot";
-
-const heroLines: SubwayLine[] = ["a", "s", "p", "c"];
-
 export function Hero() {
   return (
-    <section className="hero wrap">
-      <div className="hero-content">
-        <p className="line-marker">&#9664; NEW YORK CITY &middot; PORTFOLIO LINE &#9654;</p>
-        <div className="hero-panel">
-          <h1 className="hero-title">KAYLA</h1>
-          <p className="hero-role">SOFTWARE ENGINEER</p>
-          <div className="hero-bullets">
-            {heroLines.map((line) => (
-              <SubwayDot key={line} line={line}>
-                {line.toUpperCase()}
-              </SubwayDot>
-            ))}
-          </div>
+    <section id="about" className="hero wrap">
+      <div className="hero-grid">
+        <div className="hero-photo">
+          <img src="/kayla-hero.jpg" alt="Kayla smiling in front of a theater marquee at dusk" />
         </div>
-        <p className="hero-tagline">I bring data and design to life.</p>
-      </div>
-      <div className="this-way">
-        <span>THIS WAY</span>
-        <span className="arrow">&#8595;</span>
+        <div className="hero-text">
+          <span className="status-badge">
+            <span className="status-dot" />
+            Open to work
+          </span>
+
+          <h1 className="hero-name">Kayla</h1>
+
+          <p className="hero-tagline">I bring data and design to life.</p>
+
+          <p className="hero-desc">
+            Software engineer who works where data meets design. I build interfaces that turn
+            dense, messy information into something people actually want to use &mdash; and I
+            like owning the whole process: modeling the problem, shaping the interface, and
+            shipping something that works, end to end.
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -1,27 +1,13 @@
-import { SubwayDot, type SubwayLine } from "./SubwayDot";
-
 type SectionHeaderProps = {
-  line: SubwayLine;
   title: string;
-  tag: string;
-  tagColor?: "yellow" | "orange";
+  meta?: string;
 };
 
-export function SectionHeader({
-  line,
-  title,
-  tag,
-  tagColor = "yellow",
-}: SectionHeaderProps) {
+export function SectionHeader({ title, meta }: SectionHeaderProps) {
   return (
     <div className="section-head">
-      <h2 className="section-title">
-        <SubwayDot line={line} size="big">
-          {line.toUpperCase()}
-        </SubwayDot>{" "}
-        {title}
-      </h2>
-      <span className={`line-tag tag-${tagColor}`}>{tag}</span>
+      <h2 className="section-title">{title}</h2>
+      {meta && <span className="section-meta">{meta}</span>}
     </div>
   );
 }
