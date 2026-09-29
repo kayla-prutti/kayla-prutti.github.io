@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" fill="none">
+  <rect width="640" height="800" fill="#f2f1ed"/>
+  <path d="M0 0h640v104H0z" fill="#242424"/>
+  <text x="44" y="66" font-family="Arial,sans-serif" font-size="38" font-weight="700" fill="#fff">i-Prep<tspan fill="#ed8b45">.</tspan></text>
+  <text x="44" y="159" font-family="Arial,sans-serif" font-size="15" letter-spacing="3" fill="#767570">PERSONAL ARCHIVE</text>
+  <text x="44" y="222" font-family="Arial,sans-serif" font-size="43" font-weight="700" fill="#242424">Your next chapter.</text>
+  <text x="44" y="259" font-family="Arial,sans-serif" font-size="21" fill="#767570">One organized place to prepare.</text>
+  <path d="M44 326q0-14 14-14h175l24 28h325q14 0 14 14v108H44z" fill="#dddcd5" stroke="#aaa9a1"/>
+  <text x="72" y="402" font-family="Arial,sans-serif" font-size="29" font-weight="700" fill="#30302e">01  Interviews</text>
+  <path d="M44 458q0-14 14-14h235l24 28h265q14 0 14 14v108H44z" fill="#bcbcb4" stroke="#96968e"/>
+  <text x="72" y="534" font-family="Arial,sans-serif" font-size="29" font-weight="700" fill="#30302e">02  Question library</text>
+  <path d="M44 590q0-14 14-14h295l24 28h205q14 0 14 14v108q0 14-14 14H58q-14 0-14-14z" fill="#e99052" stroke="#ce7740"/>
+  <text x="72" y="666" font-family="Arial,sans-serif" font-size="29" font-weight="700" fill="#30302e">03  Preparation</text>
+  <text x="72" y="708" font-family="Arial,sans-serif" font-size="18" fill="#49392e">Collect. Reflect. Practice.</text>
+</svg>

@@ -21,6 +21,29 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: "i-prep",
+    status: "Live",
+    folderColor: "dark",
+    title: "i-Prep",
+    description:
+      "A personal interview library to record interview experiences, collect questions, " +
+      "and organize answers into preparation sets. Private accounts keep everything " +
+      "in one place, ready for the next opportunity.",
+    stackTags: [
+      { label: "React", chipClass: "chip-magenta" },
+      { label: "TypeScript", chipClass: "chip-blue" },
+      { label: "Supabase", chipClass: "chip-green" },
+    ],
+    liveUrl: "https://kayla-prutti.github.io/i-prep/",
+    repoUrl: "https://github.com/kayla-prutti/i-prep",
+    images: [
+      {
+        src: "/i-prep-preview.svg",
+        alt: "i-Prep illustration with interview, question library, and preparation folders",
+      },
+    ],
+  },
+  {
     id: "my-chain",
     status: "Live",
     folderColor: "green",
