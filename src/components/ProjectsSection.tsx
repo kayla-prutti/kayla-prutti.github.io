@@ -21,6 +21,29 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: "design-system",
+    status: "Live",
+    folderColor: "blue",
+    title: "Design System Playground",
+    description:
+      "A design system for AI and agent products, with reusable components, " +
+      "design tokens, and interactive documentation. Covers accessible UI patterns " +
+      "from chat inputs to agent workflows and approval requests.",
+    stackTags: [
+      { label: "React", chipClass: "chip-magenta" },
+      { label: "TypeScript", chipClass: "chip-blue" },
+      { label: "Vite", chipClass: "chip-green" },
+    ],
+    liveUrl: "https://kayla-prutti.github.io/design-system/",
+    repoUrl: "https://github.com/kayla-prutti/design-system",
+    images: [
+      {
+        src: "/design-system-preview.png",
+        alt: "Design System Playground showing a live button preview, variant controls, and component props",
+      },
+    ],
+  },
+  {
     id: "i-prep",
     status: "Live",
     folderColor: "dark",
